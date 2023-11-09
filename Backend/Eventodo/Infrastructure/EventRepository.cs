@@ -1,7 +1,7 @@
 ﻿using Eventodo.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Eventodo.Infrasctucture
+namespace Eventodo.Infrastructure
 {
     public class EventRepository : IEventRepository
     {
