@@ -1,4 +1,6 @@
-﻿using Eventodo.Domain;
+﻿using AutoMapper;
+using Eventodo.Domain;
+using Eventodo.DTOs;
 using Eventodo.Infrasctucture;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +13,12 @@ namespace Eventodo.Controllers
     public class EventsController : ControllerBase
     {
         private readonly IEventRepository _eventRepository;
+        private readonly IMapper _mapper;
 
-        public EventsController(IEventRepository eventRepository)
+        public EventsController(IEventRepository eventRepository, IMapper mapper)
         {
             _eventRepository = eventRepository ?? throw new ArgumentNullException(nameof(eventRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         [HttpGet()]
@@ -29,7 +33,9 @@ namespace Eventodo.Controllers
                 return NotFound();
             }
 
-            return Ok(eventObj);
+            var eventObjDto = _mapper.Map<EventDto>(eventObj);
+
+            return Ok(eventObjDto);
         }
     }
 }

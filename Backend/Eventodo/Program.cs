@@ -1,5 +1,6 @@
 using Eventodo.Infrasctucture;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddDbContext<EventodoDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("EventodoDb"));
     options.EnableSensitiveDataLogging(builder.Environment.IsDevelopment());
 });
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddCors(options =>
 {
