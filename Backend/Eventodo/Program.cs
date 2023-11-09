@@ -1,4 +1,4 @@
-using Eventodo.Infrasctucture;
+using Eventodo.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

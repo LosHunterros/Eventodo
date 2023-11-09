@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Eventodo.Domain;
 using Eventodo.DTOs;
-using Eventodo.Infrasctucture;
+using Eventodo.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Eventodo.Controllers
