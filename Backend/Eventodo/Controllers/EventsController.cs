@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Eventodo.Controllers
 {
     [ApiController]
-    [Route("api/event/{url:string}")]
+    [Route("api/event/{url}")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public class EventsController : ControllerBase
