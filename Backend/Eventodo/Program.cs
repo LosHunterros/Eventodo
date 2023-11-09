@@ -12,6 +12,8 @@ builder.Services.AddDbContext<EventodoDbContext>(options =>
     options.EnableSensitiveDataLogging(builder.Environment.IsDevelopment());
 });
 
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddCors(options =>
@@ -19,7 +21,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policyBuilder =>
     {
         policyBuilder
-            .WithOrigins("http://localhost:5173")
+            .WithOrigins("http://localhost:7050")
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
