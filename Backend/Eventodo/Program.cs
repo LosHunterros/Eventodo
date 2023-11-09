@@ -5,6 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddDbContext<EventodoDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("EventodoDb"));
+    options.EnableSensitiveDataLogging(builder.Environment.IsDevelopment());
+});
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policyBuilder =>
