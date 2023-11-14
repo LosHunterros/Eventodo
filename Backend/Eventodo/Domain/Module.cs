@@ -1,17 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Eventodo.Domain
 {
-    [Index(nameof(Url), IsUnique = true)]
-    public class Event
+    public abstract class Module
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Url { get; set; } = string.Empty;
-        [Required]
         public string Title { get; set; } = string.Empty;
-        public ICollection<Module> Events { get; set; } = new List<Module>();
+        public Event Event { get; set; } = default!;
+        [Required]
+        [ForeignKey(nameof(Event))]
+        public int EventId { get; set; }
     }
 }
