@@ -12,6 +12,6 @@ namespace Eventodo.Domain
         public string Url { get; set; } = string.Empty;
         [Required]
         public string Title { get; set; } = string.Empty;
-        public ICollection<Module> Events { get; set; } = new List<Module>();
+        public ICollection<Module> Modules { get; set; } = new List<Module>();
     }
 }

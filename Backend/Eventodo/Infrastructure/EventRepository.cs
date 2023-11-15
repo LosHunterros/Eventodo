@@ -14,7 +14,7 @@ namespace Eventodo.Infrastructure
 
         public Event? GetEvent(string url)
         {
-            return _eventodoDbContext.Events.SingleOrDefault(c => c.Url == url);
+            return _eventodoDbContext.Events.Include(c => c.Modules).FirstOrDefault(c => c.Url == url);
         }
 
         public IEnumerable<Event> GetEvents(string? search)
