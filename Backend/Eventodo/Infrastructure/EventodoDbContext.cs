@@ -1,4 +1,5 @@
 ﻿using Eventodo.Domain;
+using Eventodo.Domain.Modules;
 using Microsoft.EntityFrameworkCore;
 using System.Numerics;
 using System.Reflection.Metadata;

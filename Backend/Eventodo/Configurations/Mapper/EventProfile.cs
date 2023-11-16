@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Eventodo.Domain;
+using Eventodo.Domain.Modules;
 using Eventodo.DTOs;
 
 namespace Eventodo.Configurations.Mapper
