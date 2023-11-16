@@ -14,5 +14,6 @@ namespace Eventodo.Domain
         [Required]
         [ForeignKey(nameof(Event))]
         public int EventId { get; set; }
+        public string ModuleType => this.GetType().ToString().Split('.').Last();
     }
 }
