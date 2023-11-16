@@ -7,6 +7,6 @@ namespace Eventodo.DTOs
         public int Id { get; set; }
         public string Url { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
-        public ICollection<Module> Modules { get; set; } = new List<Module>();
+        public IEnumerable<ModuleDto> Modules { get; set; } = new List<ModuleDto>();
     }
 }
