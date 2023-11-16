@@ -12,7 +12,8 @@ builder.Services.AddDbContext<EventodoDbContext>(options =>
     options.EnableSensitiveDataLogging(builder.Environment.IsDevelopment());
 });
 
-builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IEventsRepository, EventsRepository>();
+builder.Services.AddScoped<IModulesRepository, ModulesRepository>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

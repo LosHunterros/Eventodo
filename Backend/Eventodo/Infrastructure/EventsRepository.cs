@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Eventodo.Infrastructure
 {
-    public class EventRepository : IEventRepository
+    public class EventsRepository : IEventsRepository
     {
         private readonly EventodoDbContext _eventodoDbContext;
 
-        public EventRepository(EventodoDbContext eventodoDbContext)
+        public EventsRepository(EventodoDbContext eventodoDbContext)
         {
             _eventodoDbContext = eventodoDbContext ?? throw new ArgumentNullException(nameof(eventodoDbContext));
         }
@@ -27,12 +27,12 @@ namespace Eventodo.Infrastructure
             throw new NotImplementedException();
         }
 
-        public bool UpdateContact(Event EventObj)
+        public bool UpdateEvent(Event eventObj)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteContact(int id)
+        public bool DeleteEvent(int id)
         {
             throw new NotImplementedException();
         }
