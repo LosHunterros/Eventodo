@@ -21,7 +21,26 @@ namespace Eventodo.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpGet("/types")]
+        // GET api/modules/1
+        [HttpGet("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Event> GetModule(int id)
+        {
+            var module = _repository.GetModule(id);
+
+            if (module is null)
+            {
+                return NotFound();
+            }
+
+            var moduleDto = _mapper.Map<ModuleDto>(module);
+
+            return Ok(moduleDto);
+        }
+
+        // GET api/modules/types
+        [HttpGet("types")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Event> GetModulesTypes()

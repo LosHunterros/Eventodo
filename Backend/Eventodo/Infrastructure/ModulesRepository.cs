@@ -14,7 +14,7 @@ namespace Eventodo.Infrastructure
 
         public Module? GetModule(int id)
         {
-            throw new NotImplementedException();
+            return _eventodoDbContext.Modules.Find(id);
         }
 
         public IEnumerable<Module> GetModules(int EventId)

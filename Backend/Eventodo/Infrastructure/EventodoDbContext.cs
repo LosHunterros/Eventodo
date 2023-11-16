@@ -1,16 +1,16 @@
 ﻿using Eventodo.Domain;
 using Eventodo.Domain.Modules;
 using Microsoft.EntityFrameworkCore;
-using System.Numerics;
-using System.Reflection.Metadata;
+using Module = Eventodo.Domain.Module;
 
 namespace Eventodo.Infrastructure
 {
     public class EventodoDbContext : DbContext
     {
-        public DbSet<Event> Events { get; set; }
-        public DbSet<Module> Modules { get; set; }
-        public DbSet<ModuleAgenda> ModulesAgenda { get; set; }
+        public DbSet<Event> Events => Set<Event>();
+        public DbSet<Module> Modules => Set<Module>();
+        public DbSet<ModuleAgenda> ModulesAgenda => Set<ModuleAgenda>();
+        public DbSet<ModuleGalery> ModulesGalery => Set<ModuleGalery>();
 
         public EventodoDbContext(DbContextOptions<EventodoDbContext> options) : base(options)
         {
