@@ -10,9 +10,11 @@ namespace Eventodo.Configurations.Mapper
         public EventProfile()
         {
             CreateMap<Event, EventDto>();
-            CreateMap<Module, ModuleDto>().
-                Include<ModuleAgenda, ModuleAgendaDto>();
+            CreateMap<Module, ModuleDto>()
+                .Include<ModuleAgenda, ModuleAgendaDto>()
+                .Include<ModuleGalery, ModuleGaleryDto>();
             CreateMap<ModuleAgenda, ModuleAgendaDto>();
+            CreateMap<ModuleGalery, ModuleGaleryDto>();
         }
     }
 }
