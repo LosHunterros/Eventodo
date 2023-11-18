@@ -24,7 +24,7 @@ namespace Eventodo.Controllers
         [HttpGet()]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Event> GetEvent(string url)
+        public ActionResult<EventDto> GetEvent(string url)
         {
             var eventObj = _repository.GetEvent(url);
 

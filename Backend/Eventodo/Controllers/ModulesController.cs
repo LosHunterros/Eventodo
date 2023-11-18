@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Eventodo.Controllers
 {
+
     [ApiController]
     [Route("api/modules")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -25,7 +26,7 @@ namespace Eventodo.Controllers
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Event> GetModule(int id)
+        public ActionResult<ModuleDto> GetModule(int id)
         {
             var module = _repository.GetModule(id);
 
@@ -43,7 +44,7 @@ namespace Eventodo.Controllers
         [HttpGet("types")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Event> GetModulesTypes()
+        public ActionResult<IEnumerable<string>> GetModulesTypes()
         {
             return Ok(_repository.GetModulesTypes());
         }
