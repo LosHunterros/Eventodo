@@ -45,7 +45,15 @@ builder.Services.AddControllers(configure =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(swaggerGenOptions =>
+{
+    swaggerGenOptions.UseAllOfForInheritance();
+    swaggerGenOptions.UseOneOfForPolymorphism();
+
+    swaggerGenOptions.SelectSubTypesUsing(baseType =>
+        typeof(Program).Assembly.GetTypes().Where(type => type.IsSubclassOf(baseType))
+    );
+});
 
 builder.Services.AddResponseCaching();
 builder.Services.AddMemoryCache();
