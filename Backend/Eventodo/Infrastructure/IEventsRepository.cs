@@ -5,10 +5,10 @@ namespace Eventodo.Infrastructure
 {
     public interface IEventsRepository
     {
-        Event? GetEvent(string url);
-        IEnumerable<Event> GetEvents(string? search);
-        void CreateEvent(Event eventObj);
-        bool UpdateEvent(Event eventObj);
-        bool DeleteEvent(int id);
+        Task<Event?> GetEventAsync(string url);
+        Task<IEnumerable<Event>> GetEventsAsync(string? search);
+        Task CreateEventAsync(Event eventObj);
+        Task<bool> UpdateEventAsync(Event eventObj);
+        Task<bool> DeleteEventAsync(int id);
     }
 }

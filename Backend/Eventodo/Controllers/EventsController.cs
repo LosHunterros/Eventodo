@@ -28,13 +28,13 @@ namespace Eventodo.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ResponseCache(CacheProfileName = "Any-20")]
-        public ActionResult<EventDto> GetEvent(string url)
+        public async Task<ActionResult<EventDto>> GetEvent(string url)
         {
             var cacheKey = $"{nameof(EventsController)}-{nameof(GetEvent)}-{url}";
 
             if (!_memoryCache.TryGetValue<EventDto>(cacheKey, out var eventObjDto))
             {
-                var eventObj = _repository.GetEvent(url);
+                var eventObj = await _repository.GetEventAsync(url);
 
                 if (eventObj is not null)
                 {

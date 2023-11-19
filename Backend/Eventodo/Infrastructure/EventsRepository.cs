@@ -12,27 +12,27 @@ namespace Eventodo.Infrastructure
             _eventodoDbContext = eventodoDbContext ?? throw new ArgumentNullException(nameof(eventodoDbContext));
         }
 
-        public Event? GetEvent(string url)
+        public async Task<Event?> GetEventAsync(string url)
         {
-            return _eventodoDbContext.Events.Include(c => c.Modules).FirstOrDefault(c => c.Url == url);
+            return await _eventodoDbContext.Events.Include(c => c.Modules).FirstOrDefaultAsync(c => c.Url == url);
         }
 
-        public IEnumerable<Event> GetEvents(string? search)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateEvent(Event eventObj)
+        public Task<IEnumerable<Event>> GetEventsAsync(string? search)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateEvent(Event eventObj)
+        public Task CreateEventAsync(Event eventObj)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteEvent(int id)
+        public Task<bool> UpdateEventAsync(Event eventObj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteEventAsync(int id)
         {
             throw new NotImplementedException();
         }

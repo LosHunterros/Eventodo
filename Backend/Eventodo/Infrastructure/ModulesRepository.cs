@@ -12,27 +12,27 @@ namespace Eventodo.Infrastructure
             _eventodoDbContext = eventodoDbContext ?? throw new ArgumentNullException(nameof(eventodoDbContext));
         }
 
-        public Module? GetModule(int id)
+        public async Task<Module?> GetModuleAsync(int id)
         {
-            return _eventodoDbContext.Modules.Find(id);
+            return  await _eventodoDbContext.Modules.FindAsync(id);
         }
 
-        public IEnumerable<Module> GetModules(int EventId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateModule(Module Module)
+        public Task<IEnumerable<Module>> GetModulesAsync(int EventId)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateModule(Module Module)
+        public Task CreateModuleAsync(Module Module)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteModule(int id)
+        public Task<bool> UpdateModuleAsync(Module Module)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteModuleAsync(int id)
         {
             throw new NotImplementedException();
         }

@@ -26,9 +26,9 @@ namespace Eventodo.Controllers
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<ModuleDto> GetModule(int id)
+        public async Task<ActionResult<ModuleDto>> GetModule(int id)
         {
-            var module = _repository.GetModule(id);
+            var module = await _repository.GetModuleAsync(id);
 
             if (module is null)
             {
