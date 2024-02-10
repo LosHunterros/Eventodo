@@ -14,7 +14,7 @@ namespace Eventodo.Infrastructure
 
         public EventodoDbContext(DbContextOptions<EventodoDbContext> options) : base(options)
         {
-
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<EventodoDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("EventodoDb"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("EventodoDBPosrgreSQL"));
     options.EnableSensitiveDataLogging(builder.Environment.IsDevelopment());
 });
 
@@ -63,17 +63,17 @@ builder.Services.AddProblemDetails();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseDeveloperExceptionPage();
 
     app.UseSwagger();
     app.UseSwaggerUI();
-}
-else
-{
-    app.UseExceptionHandler();
-}
+//}
+//else
+//{
+//   app.UseExceptionHandler();
+//}
 
 app.UseHttpsRedirection();
 
