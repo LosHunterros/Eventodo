@@ -1,4 +1,4 @@
-﻿namespace Eventodo.Domain.Modules
+﻿namespace Eventodo.Core.Modules
 {
     public class ModuleAgenda : Module
     {

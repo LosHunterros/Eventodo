@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-namespace Eventodo.Domain
+namespace Eventodo.Core
 {
     [Index(nameof(Url), IsUnique = true)]
     public class Event

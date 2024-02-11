@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using Eventodo.Domain;
-using Eventodo.DTOs;
-using Eventodo.Infrastructure;
+using Eventodo.Aplication.Repositorys;
+using Eventodo.Aplication.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Eventodo.Controllers
@@ -26,7 +25,7 @@ namespace Eventodo.Controllers
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<ModuleDto>> GetModule(int id)
+        public async Task<ActionResult<ModuleDTO>> GetModule(int id)
         {
             var module = await _repository.GetModuleAsync(id);
 
@@ -35,7 +34,7 @@ namespace Eventodo.Controllers
                 return NotFound();
             }
 
-            var moduleDto = _mapper.Map<ModuleDto>(module);
+            var moduleDto = _mapper.Map<ModuleDTO>(module);
 
             return Ok(moduleDto);
         }

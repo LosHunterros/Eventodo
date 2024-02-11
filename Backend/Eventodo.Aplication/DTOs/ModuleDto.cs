@@ -1,6 +1,6 @@
-﻿namespace Eventodo.DTOs
+﻿namespace Eventodo.Aplication.DTOs
 {
-    public class ModuleDto
+    public class ModuleDTO
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;

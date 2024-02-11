@@ -1,7 +1,7 @@
-﻿using Eventodo.Domain;
-using Eventodo.Domain.Modules;
+﻿using Eventodo.Core;
+using Eventodo.Core.Modules;
 using Microsoft.EntityFrameworkCore;
-using Module = Eventodo.Domain.Module;
+using Module = Eventodo.Core.Module;
 
 namespace Eventodo.Infrastructure
 {

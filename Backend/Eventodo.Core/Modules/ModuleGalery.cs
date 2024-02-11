@@ -1,6 +1,6 @@
-﻿namespace Eventodo.DTOs
+﻿namespace Eventodo.Core.Modules
 {
-    public class ModuleGaleryDto : ModuleDto
+    public class ModuleGalery : Module
     {
         public string Elements { get; set; } = string.Empty;
     }

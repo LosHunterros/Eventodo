@@ -1,7 +1,6 @@
-﻿using Eventodo.Domain;
-using Microsoft.Extensions.Logging;
+﻿using Eventodo.Core;
 
-namespace Eventodo.Infrastructure
+namespace Eventodo.Aplication.Repositorys
 {
     public interface IEventsRepository
     {
