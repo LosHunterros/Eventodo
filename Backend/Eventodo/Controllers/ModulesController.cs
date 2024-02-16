@@ -34,9 +34,9 @@ namespace Eventodo.Controllers
                 return NotFound();
             }
 
-            var moduleDto = _mapper.Map<ModuleDTO>(module);
+            ModuleDTO moduleDTO = _mapper.Map<ModuleDTO>(module);
 
-            return Ok(moduleDto);
+            return Ok(moduleDTO);
         }
 
         // GET api/modules/types

@@ -1,5 +1,6 @@
 using Eventodo.Infrastructure;
 using Eventodo.Aplication.Repositorys;
+using Eventodo.Aplication.Profiles.Mapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -17,7 +18,7 @@ builder.Services.AddDbContext<EventodoDbContext>(options =>
 builder.Services.AddScoped<IEventsRepository, EventsRepository>();
 builder.Services.AddScoped<IModulesRepository, ModulesRepository>();
 
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(EventProfile)));
 
 builder.Services.AddCors(options =>
 {

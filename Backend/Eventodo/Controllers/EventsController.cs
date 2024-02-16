@@ -3,6 +3,7 @@ using Eventodo.Aplication.Repositorys;
 using Eventodo.Aplication.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Eventodo.Core;
 
 namespace Eventodo.Controllers
 {
@@ -31,24 +32,24 @@ namespace Eventodo.Controllers
         {
             var cacheKey = $"{nameof(EventsController)}-{nameof(GetEvent)}-{url}";
 
-            if (!_memoryCache.TryGetValue<EventDTO>(cacheKey, out var eventObjDto))
+            if (!_memoryCache.TryGetValue(cacheKey, out EventDTO? eventObjDTO))
             {
-                var eventObj = await _repository.GetEventAsync(url);
+                Event? eventObj = await _repository.GetEventAsync(url);
 
                 if (eventObj is not null)
                 {
-                    eventObjDto = _mapper.Map<EventDTO>(eventObj);
+                    eventObjDTO = _mapper.Map<EventDTO>(eventObj);
 
-                    _memoryCache.Set(cacheKey, eventObjDto, TimeSpan.FromSeconds(20));
+                    _memoryCache.Set(cacheKey, eventObjDTO, TimeSpan.FromSeconds(20));
                 }
             }
 
-            if (eventObjDto is null)
+            if (eventObjDTO is null)
             {
                 return NotFound();
             }
 
-            return Ok(eventObjDto);
+            return Ok(eventObjDTO);
         }
     }
 }
