@@ -7,9 +7,9 @@ namespace Eventodo.Configurations.Extensions
         public static WebApplicationBuilder AddCors(this WebApplicationBuilder builder)
         {
             builder.Services.AddOptions<CorsOptions>()
-                    .Bind(builder.Configuration.GetSection("Cors"))
-                    .ValidateDataAnnotations()
-                    .ValidateOnStart();
+                .Bind(builder.Configuration.GetSection("Cors"))
+                .ValidateDataAnnotations()
+                .ValidateOnStart();
 
             builder.Services.AddCors(options =>
             {
