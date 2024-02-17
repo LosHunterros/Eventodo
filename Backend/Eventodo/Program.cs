@@ -23,19 +23,7 @@ builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(EventProfile)));
 
 builder.AddCors();
 
-builder.Services.AddControllers(configure =>
-{
-    configure.CacheProfiles.Add("Any-20",
-        new CacheProfile
-        {
-            Location = ResponseCacheLocation.Any,
-            Duration = 20
-        });
-}).AddNewtonsoftJson(options =>
-{
-    // required to prevent "Self referencing loop detected" error
-    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-});
+builder.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

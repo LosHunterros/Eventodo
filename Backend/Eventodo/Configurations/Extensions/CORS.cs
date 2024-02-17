@@ -2,9 +2,8 @@
 
 namespace Eventodo.Configurations.Extensions
 {
-    public static class WebApplicationBuilderExtension
+    public static partial class WebApplicationBuilderExtension
     {
-
         public static WebApplicationBuilder AddCors(this WebApplicationBuilder builder)
         {
             builder.Services.AddOptions<CorsOptions>()
