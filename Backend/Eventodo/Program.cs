@@ -4,6 +4,7 @@ using Eventodo.Aplication.Profiles.Mapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Eventodo.Configurations.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,16 +21,7 @@ builder.Services.AddScoped<IModulesRepository, ModulesRepository>();
 
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(EventProfile)));
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policyBuilder =>
-    {
-        policyBuilder
-            .WithOrigins("http://localhost:7050")
-            .AllowAnyMethod()
-            .AllowAnyHeader();
-    });
-});
+builder.AddCors();
 
 builder.Services.AddControllers(configure =>
 {
