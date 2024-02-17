@@ -1,5 +1,4 @@
-﻿using Eventodo.Configurations.Options;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Eventodo.Configurations.Extensions
 {

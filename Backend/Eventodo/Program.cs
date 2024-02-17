@@ -1,7 +1,6 @@
 using Eventodo.Infrastructure;
 using Eventodo.Aplication.Repositorys;
 using Eventodo.Aplication.Profiles.Mapper;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Eventodo.Configurations.Extensions;
@@ -27,15 +26,7 @@ builder.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(swaggerGenOptions =>
-{
-    swaggerGenOptions.UseAllOfForInheritance();
-    swaggerGenOptions.UseOneOfForPolymorphism();
-
-    swaggerGenOptions.SelectSubTypesUsing(baseType =>
-        typeof(Program).Assembly.GetTypes().Where(type => type.IsSubclassOf(baseType))
-    );
-});
+builder.AddSwagger();
 
 builder.Services.AddResponseCaching();
 builder.Services.AddMemoryCache();
