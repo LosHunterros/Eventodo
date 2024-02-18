@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Eventodo.Configurations.Options;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Eventodo.Configurations.Extensions
 {
@@ -6,13 +7,18 @@ namespace Eventodo.Configurations.Extensions
     {
         public static WebApplicationBuilder AddControllers(this WebApplicationBuilder builder)
         {
+            builder.Services.AddOptions<CacheOptions>()
+                .Bind(builder.Configuration.GetSection(CacheOptions.SectionName))
+                .ValidateDataAnnotations()
+                .ValidateOnStart();
+
             builder.Services.AddControllers(options =>
             {
-                options.CacheProfiles.Add("Any-20",
+                options.CacheProfiles.Add("ResponseCache",
                     new CacheProfile
                     {
                         Location = ResponseCacheLocation.Any,
-                        Duration = 20
+                        Duration = Convert.ToInt32(builder.Configuration[$"{CacheOptions.SectionName}:ResponseCacheDuration"])
                     });
             }).AddNewtonsoftJson(options =>
             {
