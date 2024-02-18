@@ -1,12 +1,14 @@
 ﻿using Eventodo.Core;
 using Eventodo.Core.Modules;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Module = Eventodo.Core.Module;
 
 namespace Eventodo.Infrastructure
 {
-    public class EventodoDbContext : DbContext
+    public class EventodoDbContext : IdentityDbContext<User, Role, string>
     {
+        public override DbSet<Role> Roles => Set<Role>();
         public DbSet<Event> Events => Set<Event>();
         public DbSet<Module> Modules => Set<Module>();
         public DbSet<ModuleAgenda> ModulesAgenda => Set<ModuleAgenda>();
@@ -57,6 +59,17 @@ namespace Eventodo.Infrastructure
                 }
             );
 
+            modelBuilder.Entity<Role>().HasData
+            (
+                new Role
+                {
+                    Id = Guid.NewGuid().ToString(), Name = "Admin", NormalizedName = "ADMIN"
+                },
+                new Role
+                {
+                    Id = Guid.NewGuid().ToString(), Name = "User", NormalizedName = "USER"
+                }
+            );
         }
     }
 }

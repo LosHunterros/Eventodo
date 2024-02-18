@@ -4,12 +4,12 @@
     {
         public static WebApplicationBuilder AddSwagger(this WebApplicationBuilder builder)
         {
-            builder.Services.AddSwaggerGen(swaggerGenOptions =>
+            builder.Services.AddSwaggerGen(options =>
             {
-                swaggerGenOptions.UseAllOfForInheritance();
-                swaggerGenOptions.UseOneOfForPolymorphism();
+                options.UseAllOfForInheritance();
+                options.UseOneOfForPolymorphism();
 
-                swaggerGenOptions.SelectSubTypesUsing(baseType =>
+                options.SelectSubTypesUsing(baseType =>
                     typeof(Program).Assembly.GetTypes().Where(type => type.IsSubclassOf(baseType))
                 );
             });

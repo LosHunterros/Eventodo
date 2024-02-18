@@ -6,9 +6,9 @@ namespace Eventodo.Configurations.Extensions
     {
         public static WebApplicationBuilder AddControllers(this WebApplicationBuilder builder)
         {
-            builder.Services.AddControllers(configure =>
+            builder.Services.AddControllers(options =>
             {
-                configure.CacheProfiles.Add("Any-20",
+                options.CacheProfiles.Add("Any-20",
                     new CacheProfile
                     {
                         Location = ResponseCacheLocation.Any,

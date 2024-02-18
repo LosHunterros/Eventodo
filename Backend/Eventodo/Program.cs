@@ -28,6 +28,8 @@ builder.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.AddSwagger();
 
+builder.AddIdentity();
+
 builder.AddJWT();
 
 builder.Services.AddResponseCaching();
