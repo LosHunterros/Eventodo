@@ -21,7 +21,8 @@ namespace Eventodo.Controllers
             _cacheOptions = cacheOptions.Value ?? throw new ArgumentNullException(nameof(cacheOptions));
         }
 
-        [HttpGet("{url}")]
+        [HttpGet()]
+        [Route("{url}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ResponseCache(CacheProfileName = "ResponseCache")]
