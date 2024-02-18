@@ -1,51 +1,55 @@
-﻿using AutoMapper;
-using Eventodo.Aplication.Repositorys;
-using Eventodo.Aplication.DTOs;
+﻿using Eventodo.Aplication.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Eventodo.Configurations.Options;
+using Microsoft.Extensions.Options;
+using Eventodo.Aplication.Services;
 
 namespace Eventodo.Controllers
 {
-
     [ApiController]
     [Route("api/modules")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public class ModulesController : ControllerBase
     {
-        private readonly IModulesRepository _repository;
-        private readonly IMapper _mapper;
+        private readonly IModulesService _service;
+        private readonly CacheOptions _cacheOptions;
 
-        public ModulesController(IModulesRepository repository, IMapper mapper)
+        public ModulesController(IModulesService service, IOptions<CacheOptions> cacheOptions)
         {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _service = service ?? throw new ArgumentNullException(nameof(service));
+            _cacheOptions = cacheOptions.Value ?? throw new ArgumentNullException(nameof(cacheOptions));
         }
 
-        // GET api/modules/1
-        [HttpGet("{id:int}")]
+        [HttpGet()]
+        [Route("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ModuleDTO>> GetModule(int id)
         {
-            var module = await _repository.GetModuleAsync(id);
+            ModuleDTO? moduleDTO = await _service.GetModuleAsync(id, _cacheOptions.MemoryCacheDuration);
 
-            if (module is null)
+            if (moduleDTO is null)
             {
                 return NotFound();
             }
 
-            ModuleDTO moduleDTO = _mapper.Map<ModuleDTO>(module);
-
             return Ok(moduleDTO);
         }
 
-        // GET api/modules/types
-        [HttpGet("types")]
+        [HttpGet()]
+        [Route("types")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<IEnumerable<string>> GetModulesTypes()
+        public ActionResult<string[]> GetModulesTypes()
         {
-            return Ok(_repository.GetModulesTypes());
+            string[]? modulesTypes = _service.GetModulesTypes(_cacheOptions.MemoryCacheDuration);
+
+            if (modulesTypes is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(modulesTypes);
         }
     }
 }

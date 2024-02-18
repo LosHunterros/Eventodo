@@ -38,7 +38,7 @@ namespace Eventodo.Aplication.Services
             return eventObjDTO;
         }
 
-        public Task<IEnumerable<EventDTO>> GetEventsAsync(string? search)
+        public Task<IEnumerable<EventDTO>> GetEventsAsync(string? search, int memoryCacheDuration)
         {
             throw new NotImplementedException();
         }

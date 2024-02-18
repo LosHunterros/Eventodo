@@ -5,10 +5,10 @@ namespace Eventodo.Aplication.Repositorys
     public interface IModulesRepository
     {
         Task<Module?> GetModuleAsync(int id);
-        Task<IEnumerable<Module>> GetModulesAsync(int EventId);
-        Task CreateModuleAsync(Module Module);
-        Task<bool> UpdateModuleAsync(Module Module);
+        Task<IEnumerable<Module>> GetModulesAsync(int eventId);
+        Task CreateModuleAsync(Module module);
+        Task<bool> UpdateModuleAsync(Module module);
         Task<bool> DeleteModuleAsync(int id);
-        IEnumerable<string> GetModulesTypes();
+        string[] GetModulesTypes();
     }
 }

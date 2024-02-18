@@ -2,9 +2,9 @@ using Eventodo.Infrastructure;
 using Eventodo.Aplication.Repositorys;
 using Eventodo.Aplication.Services;
 using Eventodo.Aplication.Profiles.Mapper;
+using Eventodo.Configurations.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using Eventodo.Configurations.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +20,7 @@ builder.Services.AddScoped<IEventsRepository, EventsRepository>();
 builder.Services.AddScoped<IEventsService, EventsService>();
 
 builder.Services.AddScoped<IModulesRepository, ModulesRepository>();
+builder.Services.AddScoped<IModulesService, ModulesService>();
 
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(EventProfile)));
 

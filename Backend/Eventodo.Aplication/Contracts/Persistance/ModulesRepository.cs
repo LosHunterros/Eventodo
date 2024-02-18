@@ -1,6 +1,6 @@
-﻿using System.Reflection;
-using Eventodo.Infrastructure;
+﻿using Eventodo.Infrastructure;
 using Module = Eventodo.Core.Module;
+using System.Reflection;
 
 namespace Eventodo.Aplication.Repositorys
 {
@@ -15,20 +15,20 @@ namespace Eventodo.Aplication.Repositorys
 
         public async Task<Module?> GetModuleAsync(int id)
         {
-            return  await _eventodoDbContext.Modules.FindAsync(id);
+            return await _eventodoDbContext.Modules.FindAsync(id);
         }
 
-        public Task<IEnumerable<Module>> GetModulesAsync(int EventId)
+        public Task<IEnumerable<Module>> GetModulesAsync(int eventId)
         {
             throw new NotImplementedException();
         }
 
-        public Task CreateModuleAsync(Module Module)
+        public Task CreateModuleAsync(Module module)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateModuleAsync(Module Module)
+        public Task<bool> UpdateModuleAsync(Module module)
         {
             throw new NotImplementedException();
         }
@@ -38,16 +38,15 @@ namespace Eventodo.Aplication.Repositorys
             throw new NotImplementedException();
         }
 
-        public IEnumerable<string> GetModulesTypes()
+        public string[] GetModulesTypes()
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var modulesAssembly = assembly.GetTypes()
-              .Where(e => String.Equals(e.Namespace, "Eventodo.Domain.Modules", StringComparison.Ordinal))
+            Assembly assembly = Assembly.GetAssembly(typeof(Module)) ?? throw new NullReferenceException();
+            string[] modulesTypes = assembly.GetTypes()
+              .Where(e => String.Equals(e.Namespace, "Eventodo.Core.Modules", StringComparison.Ordinal))
               .Select(e => e.Name)
               .ToArray();
 
-            return modulesAssembly;
+            return modulesTypes;
         }
-
     }
 }
