@@ -7,7 +7,7 @@ namespace Eventodo.Configurations.Extensions
         public static WebApplicationBuilder AddCors(this WebApplicationBuilder builder)
         {
             builder.Services.AddOptions<CorsOptions>()
-                .Bind(builder.Configuration.GetSection("Cors"))
+                .Bind(builder.Configuration.GetSection(CorsOptions.SectionName))
                 .ValidateDataAnnotations()
                 .ValidateOnStart();
 
@@ -17,7 +17,7 @@ namespace Eventodo.Configurations.Extensions
                 {
                     var origins = new List<string>();
 
-                    builder.Configuration.Bind("Cors:Origins", origins);
+                    builder.Configuration.Bind($"{CorsOptions.SectionName}:Origins", origins);
 
                     policyBuilder
                         .WithOrigins(origins.ToArray())

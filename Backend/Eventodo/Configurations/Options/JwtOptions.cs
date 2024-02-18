@@ -2,8 +2,9 @@
 
 namespace Eventodo.Configurations.Options
 {
-    public class JwtOptions
+    public class JWTOptions
     {
+        public static readonly string SectionName = "Authentication:Jwt";
         [Required]
         [MaxLength(64)]
         public string Issuer { get; set; } = default!;

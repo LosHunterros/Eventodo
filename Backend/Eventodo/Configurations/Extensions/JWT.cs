@@ -12,8 +12,8 @@ namespace Eventodo.Configurations.Extensions
     {
         public static WebApplicationBuilder AddJWT(this WebApplicationBuilder builder)
         {
-            builder.Services.AddOptions<JwtOptions>()
-                .Bind(builder.Configuration.GetSection("Authentication:Jwt"))
+            builder.Services.AddOptions<JWTOptions>()
+                .Bind(builder.Configuration.GetSection(JWTOptions.SectionName))
                 .ValidateDataAnnotations()
                 .ValidateOnStart();
 
@@ -23,13 +23,13 @@ namespace Eventodo.Configurations.Extensions
                     options.TokenValidationParameters = new()
                     {
                         ValidateIssuer = true,
-                        ValidIssuer = builder.Configuration["Authentication:Jwt:Issuer"],
+                        ValidIssuer = builder.Configuration[$"{JWTOptions.SectionName}:Issuer"],
 
                         ValidateAudience = true,
-                        ValidAudience = builder.Configuration["Authentication:Jwt:Audience"],
+                        ValidAudience = builder.Configuration[$"{JWTOptions.SectionName}:Audience"],
 
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Authentication:Jwt:SigningKey"]!))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration[$"{JWTOptions.SectionName}:SigningKey"]!))
                     };
                 }));
 
