@@ -11,11 +11,15 @@ namespace Eventodo.Aplication.Profiles.Mapper
         public EventProfile()
         {
             CreateMap<Event, EventDTO>();
+
             CreateMap<Module, ModuleDTO>()
                 .Include<ModuleAgenda, ModuleAgendaDTO>()
                 .Include<ModuleGalery, ModuleGaleryDTO>();
+
             CreateMap<ModuleAgenda, ModuleAgendaDTO>();
             CreateMap<ModuleGalery, ModuleGaleryDTO>();
+
+            CreateMap<UserRegisterDTO, User>();
         }
     }
 }

@@ -43,12 +43,12 @@ namespace Eventodo.Aplication.Services
             throw new NotImplementedException();
         }
 
-        public Task CreateEventAsync(EventDTO eventObj)
+        public Task CreateEventAsync(EventDTO eventObjDTO)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateEventAsync(EventDTO eventObj)
+        public Task<bool> UpdateEventAsync(EventDTO eventObjDTO)
         {
             throw new NotImplementedException();
         }

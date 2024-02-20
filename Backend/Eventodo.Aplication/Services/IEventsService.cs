@@ -6,8 +6,8 @@ namespace Eventodo.Aplication.Services
     {
         Task<EventDTO?> GetEventAsync(string url, int memoryCacheDuration);
         Task<IEnumerable<EventDTO>> GetEventsAsync(string? search, int memoryCacheDuration);
-        Task CreateEventAsync(EventDTO eventObj);
-        Task<bool> UpdateEventAsync(EventDTO eventObj);
+        Task CreateEventAsync(EventDTO eventObjDTO);
+        Task<bool> UpdateEventAsync(EventDTO eventObjDTO);
         Task<bool> DeleteEventAsync(int id);
     }
 }

@@ -43,12 +43,12 @@ namespace Eventodo.Aplication.Services
             throw new NotImplementedException();
         }
 
-        public Task CreateModuleAsync(ModuleDTO module)
+        public Task CreateModuleAsync(ModuleDTO moduleDTO)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateModuleAsync(ModuleDTO module)
+        public Task<bool> UpdateModuleAsync(ModuleDTO moduleDTO)
         {
             throw new NotImplementedException();
         }

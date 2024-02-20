@@ -15,5 +15,8 @@ namespace Eventodo.Configurations.Options
         [MinLength(32)]
         [MaxLength(256)]
         public string SigningKey { get; set; } = default!;
+        [Required]
+        [Range(0, 1209600)]
+        public int Expires { get; set; } = default!;
     }
 }

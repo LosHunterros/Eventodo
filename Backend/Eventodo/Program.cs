@@ -22,6 +22,9 @@ builder.Services.AddScoped<IEventsService, EventsService>();
 builder.Services.AddScoped<IModulesRepository, ModulesRepository>();
 builder.Services.AddScoped<IModulesService, ModulesService>();
 
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IUsersService, UsersService>();
+
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(EventProfile)));
 
 builder.AddCors();
