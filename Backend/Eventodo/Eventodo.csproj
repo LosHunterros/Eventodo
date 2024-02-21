@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Eventodo.Aplication\Eventodo.Aplication.csproj" />
+    <ProjectReference Include="..\Eventodo.Core\Eventodo.Core.csproj" />
     <ProjectReference Include="..\Eventodo.Infrastructure\Eventodo.Infrastructure.csproj" />
   </ItemGroup>
 

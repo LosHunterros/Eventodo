@@ -1,6 +1,6 @@
 ﻿using Eventodo.Core;
 
-namespace Eventodo.Aplication.Repositorys
+namespace Eventodo.Infrastructure.Repositorys
 {
     public interface IEventsRepository
     {

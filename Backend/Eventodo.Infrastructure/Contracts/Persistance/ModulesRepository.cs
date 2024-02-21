@@ -1,8 +1,7 @@
-﻿using Eventodo.Infrastructure;
-using Module = Eventodo.Core.Module;
+﻿using Module = Eventodo.Core.Module;
 using System.Reflection;
 
-namespace Eventodo.Aplication.Repositorys
+namespace Eventodo.Infrastructure.Repositorys
 {
     public class ModulesRepository : IModulesRepository
     {

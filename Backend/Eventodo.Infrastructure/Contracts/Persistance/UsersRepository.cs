@@ -1,8 +1,7 @@
 ﻿using Eventodo.Core;
-using Eventodo.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 
-namespace Eventodo.Aplication.Repositorys
+namespace Eventodo.Infrastructure.Repositorys
 {
     public class UsersRepository : IUsersRepository
     {

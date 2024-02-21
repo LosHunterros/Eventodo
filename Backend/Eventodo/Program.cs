@@ -1,5 +1,5 @@
 using Eventodo.Infrastructure;
-using Eventodo.Aplication.Repositorys;
+using Eventodo.Infrastructure.Repositorys;
 using Eventodo.Aplication.Services;
 using Eventodo.Aplication.Profiles.Mapper;
 using Eventodo.Configurations.Extensions;

@@ -1,5 +1,5 @@
 ﻿using Eventodo.Aplication.DTOs;
-using Eventodo.Aplication.Repositorys;
+using Eventodo.Infrastructure.Repositorys;
 using Eventodo.Core;
 using AutoMapper;
 using Microsoft.Extensions.Caching.Memory;
