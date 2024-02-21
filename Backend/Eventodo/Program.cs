@@ -5,6 +5,7 @@ using Eventodo.Aplication.Profiles.Mapper;
 using Eventodo.Configurations.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,8 @@ builder.AddIdentity();
 
 builder.AddJWT();
 
+builder.AddSerilog();
+
 builder.Services.AddResponseCaching();
 builder.Services.AddMemoryCache();
 
@@ -49,7 +52,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-app.UseDeveloperExceptionPage();
+    app.UseDeveloperExceptionPage();
 
     app.UseSwagger();
     app.UseSwaggerUI();
