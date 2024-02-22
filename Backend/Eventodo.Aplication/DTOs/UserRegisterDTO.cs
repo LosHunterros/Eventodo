@@ -5,6 +5,7 @@ namespace Eventodo.Aplication.DTOs
     public class UserRegisterDTO
     {
         [Required]
+        [MinLength(2)]
         [MaxLength(255)]
         public string UserName { get; set; } = string.Empty;
         [Required]
