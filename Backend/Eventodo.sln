@@ -5,11 +5,13 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventodo", "Eventodo\Eventodo.csproj", "{83010267-8BFD-4F27-BADC-5BFB2BEFB0DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventodo.Core", "Eventodo.Core\Eventodo.Core.csproj", "{070304EB-D6D8-4CEB-8103-50A08449AE5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventodo.Core", "Eventodo.Core\Eventodo.Core.csproj", "{070304EB-D6D8-4CEB-8103-50A08449AE5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventodo.Aplication", "Eventodo.Aplication\Eventodo.Aplication.csproj", "{57B1A7C3-126B-4F60-AC7D-91CE2ADCA524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventodo.Aplication", "Eventodo.Aplication\Eventodo.Aplication.csproj", "{57B1A7C3-126B-4F60-AC7D-91CE2ADCA524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventodo.Infrastructure", "Eventodo.Infrastructure\Eventodo.Infrastructure.csproj", "{6F1F935B-ABB8-4F0B-AAAF-FDFABC378342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventodo.Infrastructure", "Eventodo.Infrastructure\Eventodo.Infrastructure.csproj", "{6F1F935B-ABB8-4F0B-AAAF-FDFABC378342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{8A38173D-5427-4211-A157-EEEB9EC3C305}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6F1F935B-ABB8-4F0B-AAAF-FDFABC378342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F1F935B-ABB8-4F0B-AAAF-FDFABC378342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F1F935B-ABB8-4F0B-AAAF-FDFABC378342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A38173D-5427-4211-A157-EEEB9EC3C305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A38173D-5427-4211-A157-EEEB9EC3C305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A38173D-5427-4211-A157-EEEB9EC3C305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A38173D-5427-4211-A157-EEEB9EC3C305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
